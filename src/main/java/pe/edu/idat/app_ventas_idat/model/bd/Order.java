@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -32,5 +34,9 @@ public class Order {
     @ManyToOne
     @JoinColumn( name = "enployeeid")
     private Employee employee;
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
+
+    private Set<OrderDetail> product = new HashSet<>();
+
 
 }

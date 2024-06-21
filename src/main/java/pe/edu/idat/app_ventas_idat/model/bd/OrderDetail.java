@@ -18,4 +18,14 @@ public class OrderDetail {
     private Double  unitprice;
     private Integer quantity;
     private Double discount;
+
+    @ManyToOne
+    @MapsId("productid")
+    @JoinColumn(name = "productid")
+    private Product product;
+
+    @ManyToOne
+    @MapsId
+    @JoinColumn(name = "Orderid")
+    private Order order;
 }
