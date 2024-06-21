@@ -15,5 +15,9 @@ public class Category {
     private Integer CategoryId;
     private String Categoyname;
     private String description;
+    private boolean discontinued;
+    @ManyToOne
+    @JoinColumn(name = "categoryid")
+    private Category category;
 
 }

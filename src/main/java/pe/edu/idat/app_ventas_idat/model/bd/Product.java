@@ -20,4 +20,12 @@ public class Product {
     private Integer unitsonorder;
     private Integer reorderlevel;
     private boolean discontinued;
+    @ManyToOne
+    @JoinColumn(name = "suplierid")
+    private Supplier supplier;
+
+    @ManyToOne
+    @JoinColumn(name = "categoryid")
+    private Category category;
+
 }
