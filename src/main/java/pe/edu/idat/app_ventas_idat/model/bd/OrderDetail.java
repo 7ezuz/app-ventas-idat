@@ -25,7 +25,7 @@ public class OrderDetail {
     private Product product;
 
     @ManyToOne
-    @MapsId
-    @JoinColumn(name = "Orderid")
+    @MapsId("orderid")
+    @JoinColumn(name = "orderid")
     private Order order;
 }

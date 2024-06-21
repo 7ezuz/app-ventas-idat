@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Getter
 @Setter
 @Entity
@@ -18,4 +21,9 @@ public class Usuario {
     private String email;
     private String password;
     private boolean activo;
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinTable(name = "usario_rol",joinColumns = @JoinColumn(name = "idusuario"),
+    inverseJoinColumns = @JoinColumn(name = "idrol"))
+    private Set<Rol> roles = new HashSet<>();
+
 }
